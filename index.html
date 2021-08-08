@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Wire Calculator</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <script src = "data.js"></script>
+    <style>
+        input, label {
+            display: block;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            margin: 0;
+            padding: 0;
+            height: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        label {
+            padding-bottom: 0;
+            margin-bottom: 0;
+            /* flex-basis: 1; */
+        }
+
+        input, select {
+            height: 50%;
+            width: 50%;
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-size: 1em;
+            /* flex-basis: 1; */
+        }
+
+        .inputWrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+
+        #wrapper {
+            width: 40vw;
+            height: 80vh;
+            padding-bottom: 5vh;
+            padding-top: 5vh;
+            margin-top: 5vh;
+            background-color: #f5f5f5;
+            border: 2px solid black;
+            padding-top: 3%;
+            position: relative;
+            display: grid;
+            grid-template-rows: 2fr 2fr 2fr 2fr 2fr 9fr;
+        }
+
+        h1 {
+            font-size: 2em;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        #output {
+            margin-left: 2%;
+            margin-right: 2%;
+            border-top: 1px solid black;
+            height: 100%;
+            width: 96%;
+        }
+
+        #answer {
+            font-size: 1.5em;
+            text-align: center;
+            margin-top: 10%;
+            font-weight: 700;
+        }
+
+        #pipeSizeWrapper {
+            font-size: 1.2em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 5%;
+        }
+
+        table {
+            width: 50%;
+        }
+
+        td {
+            border: 1px solid black;
+            vertical-align: bottom;
+            padding: 2px;
+        }
+
+        td:last-child {
+            text-align: right;
+        }
+
+      
+
+        th {
+            border: none;
+            padding-bottom: 1%;
+            text-align: center;
+        }
+
+        table, tr, td {
+            margin: 0;
+            border-collapse: collapse;
+        }
+
+
+
+        @media only screen and (max-width: 800px)        {
+            #wrapper {
+                width: 100vw;
+                max-height: 100vh;
+                height: 100vh;
+                border: none;
+                padding: 0;
+                margin: 0;
+                grid-template-rows: 1fr 2fr 2fr 2fr 2fr 9fr;
+
+            }
+
+            h1 {
+                font-size: 22px;
+            }
+
+            #answer {
+                margin-top: 5%;
+            }
+/* 
+            input, select {
+                padding: -2%;
+            } */
+        }
+
+
+
+    </style>
+</head>
+
+<body>
+    <div id="wrapper">
+        <h1>Wire Calculator</h1>
+        <div class = "inputWrapper">
+            <label for="volts">Volts</label>
+            <select name="volts" id="volts">
+                <option value="120">120</option>
+            </select>
+        </div>
+
+        <div class = "inputWrapper">
+            <label for="amps">Amps</label>
+            <select id="amps" name="amps" type="number">
+                <option value="20">20</option>
+                <option value="30">30</option>
+                <option value="40">40</option>
+                <option value="50">50</option>
+            </select>
+        </div>
+        
+        <div class = "inputWrapper">
+            <label for="Length in Feet">Wire Length</label>
+            <input type="number" id="wireLength" name="wireLength">
+        </div>
+        
+        <div class = "inputWrapper">
+            <button onclick="findWire()">Submit</button>
+        </div>
+
+        <div id="output">
+            <div id = "answer"></div>
+        </div>
+    </div>
+    <script src="calculator.js" async defer></script>
+</body>
+
+</html>
